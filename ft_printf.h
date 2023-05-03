@@ -6,7 +6,7 @@
 /*   By: mtoledan <mtoledan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 19:43:22 by mtoledan          #+#    #+#             */
-/*   Updated: 2023/04/28 09:38:13 by mtoledan         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:56:41 by mtoledan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 char		*ft_itoa(int n);
 static int	size(long n);
 int			ft_printf(const char *str, ...);
-void 		ft_printf_str(char *str);
+void	ft_treat_general(va_list args, char c);
+void	ft_putchar(char c);
+void ft_treat_c(va_list args, char c);
 
 #endif
