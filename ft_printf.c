@@ -6,7 +6,7 @@
 /*   By: mtoledan <mtoledan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:08:33 by mtoledan          #+#    #+#             */
-/*   Updated: 2023/05/03 16:47:58 by mtoledan         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:50:59 by mtoledan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,8 @@ void ft_treat_c(va_list args, char c)
 }
 int	main(void)
 {
-	char c;
-	c = 'l';
 	// printf("camille%%c\n");
-	ft_printf("Mike %c");
+	ft_printf("%c",'K');
 	// ft_browse_str("lol%%%%\n");
 	//print_c(6, 'A', 'B', 'C', 'D', 'E');
 	//printf("Exemple de printf : %s\n");
