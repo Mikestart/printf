@@ -6,7 +6,7 @@
 #    By: mtoledan <mtoledan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/18 18:35:44 by mtoledan          #+#    #+#              #
-#    Updated: 2023/04/27 14:40:52 by mtoledan         ###   ########.fr        #
+#    Updated: 2023/05/05 16:38:40 by mtoledan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS =  libft_help.c \
-		ft_printf.c
+		ft_printf.c \
+		utils.c
 
 OBJS = ${SRCS:.c=.o}
 RM = rm -f
