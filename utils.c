@@ -6,37 +6,41 @@
 /*   By: mtoledan <mtoledan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:31:05 by mtoledan          #+#    #+#             */
-/*   Updated: 2023/05/07 18:08:49 by mtoledan         ###   ########.fr       */
+/*   Updated: 2023/05/09 17:41:48 by mtoledan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_treat_s(va_list args, char c)
+void	ft_treat_s(va_list args, char c, int *count)
 {
 	char	*ct;
+
+	ct = va_arg(args, char *);
 	if (c == 's')
 	{
-		ct = va_arg(args, char *);
-		ft_putstr((char *)ct);
+		if (ct == NULL)
+			ft_putstr("(null)", count);
+		else
+			ft_putstr((char *)ct, count);
 	}
 }
 
-void	ft_treat_c(va_list args, char c)
+void	ft_treat_c(va_list args, char c, int *count)
 {
 	char	cb;
 
 	cb = 0;
 	if (c == '%')
-		ft_putchar('%');
+		ft_putchar('%', count);
 	if (c == 'c')
 	{
 		cb = va_arg(args, int);
-		ft_putchar((char)cb);
+		ft_putchar((char)cb, count);
 	}
 }
 
-void	ft_treat_d(va_list args, char c)
+void	ft_treat_d(va_list args, char c, int *count)
 {
 	int	n;
 
@@ -44,26 +48,26 @@ void	ft_treat_d(va_list args, char c)
 	if (c == 'd' || c == 'i')
 	{
 		n = va_arg(args, int);
-		ft_putnbr(n);
+		ft_putnbr(n, count);
 	}
 }
 
-void	ft_treat_p(va_list args, char c, char *base)
+void	ft_treat_p(va_list args, char c, char *base, int *count)
 {
-	void *p;
-	unsigned long n;
+	void			*p;
+	unsigned long	n;
 
 	p = NULL;
 	n = (unsigned long)p;
 	if (c == 'p')
 	{
 		n = va_arg(args, unsigned long);
-		ft_putstr("0x");
-		ft_putnbr_base_p(n, base);
+		ft_putstr("0x", count);
+		ft_putnbr_base_p(n, base, count);
 	}
 }
 
-void	ft_treat_u(va_list args, char c)
+void	ft_treat_u(va_list args, char c, int *count)
 {
 	unsigned int	u;
 
@@ -71,35 +75,16 @@ void	ft_treat_u(va_list args, char c)
 	if (c == 'u')
 	{
 		u = va_arg(args, unsigned int);
-		ft_unsigned_putnbr(u);
-	}
-}
-void	ft_treat_x(va_list args, char c, char *base)
-{
-	int	x;
-	if (c == 'x')
-	{
-		x = va_arg(args, int);
-		ft_putnbr_base_x(x, base);
+		ft_unsigned_putnbr(u, count);
 	}
 }
 
-void	ft_treat_X(va_list args, char c, char *base_X)
-{
-	int	X;
-	if (c == 'X')
-	{
-		X = va_arg(args, int);
-		ft_putnbr_base_x(X, base_X);
-	}
-}
 // void ft_putnbr_16b (void *p)
 // {
 // 	unsigned long	n;
 // 	int				i;
 // 	int				digit;
 // 	char			buffer[16];
-	
 // 	n = (unsigned long)p;
 // 	i = 0;
 // 	digit = 0;
